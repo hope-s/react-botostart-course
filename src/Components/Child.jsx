@@ -1,16 +1,13 @@
 import React, { Component } from "react";
-import HOComponent from "./HOComponent";
-
 class Child extends Component {
   render() {
+    const { body, title } = this.props;
     return (
-      <div>
-        <button onClick={this.props.clickHandler}>counter</button>
-        <h1>{this.props.number}</h1>
-        <h4>{this.props.text}</h4>
-        <h3>{this.props.n}</h3>
+      <div style={{border: '1px solid blue', borderRadius: 10, margin: 10, padding: 10}}>
+        <h1>{title}</h1>
+        <p>{body}</p>
       </div>
     );
   }
 }
-export default HOComponent(Child, 4);
+export default Child;
