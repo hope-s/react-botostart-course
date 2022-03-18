@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import HOComponent from "./HOComponent";
 
-class Child extends Component {
+class Child2 extends Component {
   render() {
+    console.log(this.props)
     return (
       <div>
         <button onClick={this.props.clickHandler}>counter</button>
@@ -13,4 +14,4 @@ class Child extends Component {
     );
   }
 }
-export default HOComponent(Child, 4);
+export default HOComponent(Child2, 1);
