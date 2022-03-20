@@ -18,6 +18,6 @@ export const reducer = produce((state, action) => {
             state.data = action.payload;
             break;
         default:
-            state.name = ""
+            return state
     }
 }, initState)
