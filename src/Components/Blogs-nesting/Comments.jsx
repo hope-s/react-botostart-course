@@ -4,7 +4,7 @@ export default class Rouls extends Component {
   render() {
     return (
       <div>
-        <h1>Roules</h1>
+        <h1>Comments</h1>
         <p>Roules paragraph</p>
       </div>
     );

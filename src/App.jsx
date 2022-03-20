@@ -1,35 +1,34 @@
-import React, { Component } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React, { Component, Suspense } from "react";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import HomePage from "./Components/HomePage";
-import Products from "./Components/Products";
 import Blogs from "./Components/Blogs";
 import AboutUS from "./Components/AboutUS";
-import Product from "./Components/Product";
 import NotFound from "./Components/Error404";
-import Navbar from "./Components/Navbar";
+
+import TelMe from "./Components/AboutUs-nesting/telMe";
+import Roules from "./Components/AboutUs-nesting/Rouls";
+
+const Navbar = React.lazy(() => import("./Components/Navbar"));
 
 export default class App extends Component {
   render() {
     return (
-      <>
-        <Navbar />
-        <div>
-          <Switch>
-            <Route path="/products/:id" component={Product} />
-            <Route
-              path="/blogs/:name?"
-              render={(props) => <Blogs {...props} name="hope" />}
-            />
-            <Route path="/products" component={Products} />
-            <Route path="/aboutus" component={AboutUS} />
-            <Route path="/notFound" component={NotFound} />
-            <Redirect from="/id" to="/aboutus" />
-            <Route exact path="/" component={HomePage} />
-            <Redirect to="/notFound" />
-          </Switch>
-        </div>
-      </>
+      <BrowserRouter>
+        <Suspense fallback={<h4>loading....</h4>}>
+          <Navbar />
+        </Suspense>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/aboutus" element={<AboutUS />}>
+            <Route path=":telme" element={<TelMe />} />
+            <Route path="roules" element={<Roules />} />
+          </Route>
+          <Route path="/blogs/*" element={<Blogs />} />
+          <Route path="/notFound" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/notFound" />} />
+        </Routes>
+      </BrowserRouter>
     );
   }
 }

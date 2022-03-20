@@ -4,27 +4,15 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <div>
-      <button>
+      <h4>
         <Link to="/">Home</Link>
-      </button>
-      <button>
-        <Link to="/products">Products</Link>
-      </button>
-      <button>
-        <Link
-          to={{
-            pathname: "/blogs",
-            search: "?sort=name",
-            hash: "#the-hash",
-            state: { fromDashboard: true },
-          }}
-        >
-          Blogs
-        </Link>
-      </button>
-      <button>
+      </h4>
+      <h4>
+        <Link to="/blogs">Blogs</Link>
+      </h4>
+      <h4>
         <Link to="/aboutus">AboutUS</Link>
-      </button>
+      </h4>
     </div>
   );
 }
