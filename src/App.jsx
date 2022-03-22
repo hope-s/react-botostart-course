@@ -1,26 +1,12 @@
-import React, { useCallback, useState } from "react";
-import A from "./components/a";
-import B from "./components/b";
+import React from "react";
+import SignUp from "./components/SignUp";
+import { ToastContainer } from "react-toastify";
 
-function App() {
-  const [one, setOne] = useState("a");
-  const [two, setTwo] = useState("b");
-
-  console.log("<App/>");
-
-  const setName1 = useCallback(() => {
-    setOne("aa");
-  }, [one]);
-
-  const setName2 = useCallback(() => {
-    setTwo("bb");
-  }, [two]);
-
+export default function App() {
   return (
     <div>
-      <A value={one} func={setName1} />
-      <B value={two} func={setName2} />
+      <SignUp />
+      <ToastContainer />
     </div>
   );
 }
-export default App;
