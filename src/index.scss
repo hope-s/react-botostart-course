@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background-color: #F7F7F7;
 }
 
 .formContainer {
@@ -20,10 +21,7 @@ body {
   min-height: 92vh;
   border: 1px solid silver;
   border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  background-color: #fffffd;
 
   h2 {
     color: darkmagenta
@@ -34,14 +32,10 @@ body {
   }
 
   div input:not(input[type="checkbox"]) {
-    border-radius: 4px;
+    border-radius: 6px; 
     padding: 10px 0px;
     margin: 0.8rem 0px;
     width: 100%;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
     border: 2px solid #6998AB;
 
 
@@ -58,6 +52,20 @@ body {
     &:focus-visible {
       outline: none
     }
+  }
+
+  .Login_SignUp {
+    a {
+      color: darkmagenta;
+      text-decoration: none !important;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    text-align: left;
+    display: inline;
+    margin-top: -1.5rem;
   }
 
   label {
@@ -77,11 +85,13 @@ body {
     border: none;
     color: #ffffff;
     border-radius: 4px;
+    margin-top: 1rem;
     background-color: darkmagenta;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    cursor: pointer;
   }
 }
 

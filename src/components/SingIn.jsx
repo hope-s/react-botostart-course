@@ -8,9 +8,6 @@ export default function SignUp() {
   const [data, setData] = useState({
     name: "",
     email: "",
-    password: "",
-    confirmPassword: "",
-    isAccepted: false,
   });
 
   const [touched, setTouch] = useState({});
@@ -21,15 +18,11 @@ export default function SignUp() {
 
   const [error, setError] = useState({});
   useEffect(() => {
-    setError(validate(data, "signUp"));
+    setError(validate(data));
   }, [data, touched]);
 
   const changeHandler = (event) => {
-    if (event.target.name === "isAccepted") {
-      setData({ ...data, [event.target.name]: event.target.checked });
-    } else {
-      setData({ ...data, [event.target.name]: event.target.value });
-    }
+    setData({ ...data, [event.target.name]: event.target.value });
   };
 
   const submitHandler = (event) => {
@@ -48,15 +41,12 @@ export default function SignUp() {
       })();
 
       setTouch({
-        name: true,
         email: true,
         password: true,
-        confirmPassword: true,
-        isAccepted: true,
       });
     } else {
       (function () {
-        toast.success("Account created 😘", {
+        toast.success("Youre Logined ✅", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -71,27 +61,7 @@ export default function SignUp() {
   return (
     <div>
       <form className="formContainer" onSubmit={submitHandler}>
-        <h2>SignUp</h2>
-
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            autoComplete="off"
-            type="text"
-            name="name"
-            value={data.name}
-            onChange={changeHandler}
-            onFocus={focusHandler}
-            className={`${
-              error.name && touched.name ? "inputError" : "inputSuccess"
-            }`}
-          />
-          {error.name && touched.name && (
-            <p className="inputMessage">{error.name}</p>
-          )}
-        </div>
-
+        <h2>SignIn</h2>
         <div>
           <label htmlFor="email">Email</label>
           <input
@@ -124,43 +94,10 @@ export default function SignUp() {
           )}
         </div>
 
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            id="confirmPassword"
-            autoComplete="off"
-            type="password"
-            name="confirmPassword"
-            value={data.confirmPassword}
-            onChange={changeHandler}
-            onFocus={focusHandler}
-          />
-          {error.confirmPassword && touched.confirmPassword && (
-            <p className="inputMessage">{error.confirmPassword}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="isAccepted" style={{ display: "inline" }}>
-            i igure
-          </label>
-          <input
-            id="isAccepted"
-            type="checkbox"
-            name="isAccepted"
-            value={data.isAccepted}
-            onChange={changeHandler}
-            onFocus={focusHandler}
-          />
-          {error.isAccepted && touched.isAccepted && (
-            <p className="inputMessage">{error.isAccepted}</p>
-          )}
-        </div>
-
         <button>Submit</button>
 
         <div className="Login_SignUp">
-          <Link to="/signIn">SignIn</Link>
+          <Link to="/signUp">SignUp</Link>
         </div>
       </form>
     </div>
