@@ -1,54 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import GetProductsContext from "./components/context/GetProductsContext";
+import ProductDetails from "./components/ProductDetails";
+import CardContextProvider from "./components/context/CardContextProvider";
+import Store from "./components/Store";
+import Navbar from "./components/shared/Navbar";
+import ShopCart from "./components/shared/ShopCart";
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: "",
-      items: [],
-    };
-    this.handelChange = this.handelChange.bind(this);
-    this.handelSubmit = this.handelSubmit.bind(this);
-  }
-
-  handelSubmit(e){
-    e.preventDefault();
-    if(this.state.text.length === 0){
-      return 
-    }
-
-    const newItems = {
-      text: this.state.text,
-      id: Date.now()
-    }
-
-    this.setState((prev)=>({
-      items: prev.items.concat(newItems),
-      text: ""
-    }))
-    console.log(this.state)
-  }
-  
-  handelChange(event) {
-    this.setState({ text: event.target.value });
-  }
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handelSubmit}>
-          <input
-            type="text"
-            value={this.state.text}
-            onChange={this.handelChange}
-          />
-          <button>Add</button>
-        </form>
-        <ul>
-          {this.state.items.map((item, id) => (
-            <li key={item.id}>{item.text}</li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <GetProductsContext>
+      <CardContextProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="products/:id" element={<ProductDetails />} />
+            <Route path="products" element={<Store />} />
+            <Route path="cart" element={<ShopCart />} />
+            <Route path="/" element={<Navigate to="/products" />} />
+          </Routes>
+        </BrowserRouter>
+      </CardContextProvider>
+    </GetProductsContext>
+  );
 }

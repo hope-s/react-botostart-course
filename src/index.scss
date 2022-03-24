@@ -6,98 +6,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  background-color: #F7F7F7;
+  background-color: #FDFAF6;
 }
 
-.formContainer {
-  padding: 10px;
-  margin: 1rem auto;
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.cardContainer {
   display: flex;
-  align-content: center;
-  width: 30%;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 92vh;
-  border: 1px solid silver;
-  border-radius: 5px;
-  background-color: #fffffd;
-
-  h2 {
-    color: darkmagenta
-  }
-
-  div {
-    width: 90%;
-  }
-
-  div input:not(input[type="checkbox"]) {
-    border-radius: 6px; 
-    padding: 10px 0px;
-    margin: 0.8rem 0px;
-    width: 100%;
-    border: 2px solid #6998AB;
-
-
-    .inputError:focus {
-      border: 2px solid #CD1818 !important;
-
-    }
-
-    .inputSuccess:focus {
-      border: 2px solid #0B4619 !important;
-
-    }
-
-    &:focus-visible {
-      outline: none
-    }
-  }
-
-  .Login_SignUp {
-    a {
-      color: darkmagenta;
-      text-decoration: none !important;
-      font-size: 18px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    text-align: left;
-    display: inline;
-    margin-top: -1.5rem;
-  }
-
-  label {
-    display: block;
-  }
-
-  .inputMessage {
-    margin: 0 !important;
-    display: block;
-    padding-bottom: 1rem;
-    color: #CD1818;
-  }
-
-  button {
-    padding: 0.7rem 2rem;
-    min-width: 1rem;
-    border: none;
-    color: #ffffff;
-    border-radius: 4px;
-    margin-top: 1rem;
-    background-color: darkmagenta;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    cursor: pointer;
-  }
-}
-
-
-@media screen and(max-width: 900px) {
-  .formContainer {
-    width: 90% !important
-  }
+  flex-wrap: wrap;
+  padding-top: 6rem;
 }
