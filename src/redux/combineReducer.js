@@ -1,14 +1,10 @@
 import {
     combineReducers
 } from "redux";
-import reducerNumber from "./number/numberReducer";
-import reducer from "./counter/counterReducer";
-import reducerData from "./data/reducerData"
+import userReducer from "./user/actionReducer"
 
 const combineReducer = combineReducers({
-    reducer,
-    reducerNumber,
-    reducerData
+    usersState: userReducer
 })
 
 export default combineReducer
