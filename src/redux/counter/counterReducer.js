@@ -1,5 +1,5 @@
 const initialState = {
-    counter: 2
+    counter: 1
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,10 +9,15 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 counter: state.counter + 1
             }
-            default:
-                return {
-                    counter: state.counter,
-                }
+        case "DECREASE":
+            return {
+                ...state,
+                counter: state.counter - 1
+            }
+        default:
+            return {
+                counter: state.counter,
+            }
     }
 }
 
