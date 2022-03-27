@@ -1,5 +1,6 @@
 const initialState = {
-    number: 2
+    number: 2,
+    data: []
 }
 
 const reducerNumber = (state = initialState, action) => {
@@ -7,12 +8,17 @@ const reducerNumber = (state = initialState, action) => {
         case "INCREASE_NUMBER":
             return {
                 ...state,
-                number: state.number + 1
+                number: state.number + action.payload
             }
         case "DECREASE_NUMBER":
             return {
                 ...state,
                 number: state.number - 1
+            }
+        case "SET_DATA":
+            return {
+                ...state,
+                data: [action.payload]
             }
         default:
             return {
