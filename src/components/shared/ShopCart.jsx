@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
-import { CardContext } from "../context/CardContextProvider";
+import React from "react";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function ShopCart() {
-  const { state, dispatch } = useContext(CardContext);
+  const state = useSelector((state) => state.basket);
+  const dispatch = useDispatch()
   return (
     <div>
       {state.checkout && (

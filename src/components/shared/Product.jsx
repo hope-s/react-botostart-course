@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { shorten } from "../../helper/functions";
 import "../style.scss";
 import { Link } from "react-router-dom";
 import { isInCart, quantityCount } from "../../helper/functions";
-import { CardContext } from "../context/CardContextProvider";
 import Trash from "../../assets/trash.svg";
+import { connect } from "react-redux";
 
-export default function Product({ product }) {
-  const { state, dispatch } = useContext(CardContext);
+function Product({ product, state, dispatch }) {
   return (
     <div className="cardProduct">
       <img className="cardImage" src={product.image} alt={product.title} />
@@ -15,10 +14,7 @@ export default function Product({ product }) {
       <p className="cardText textPrice">
         {product.price}${" "}
         {quantityCount(state, product.id) >= 1 && (
-          <span>
-            - Count:{" "}
-            {quantityCount(state, product.id)}
-          </span>
+          <span>- Count: {quantityCount(state, product.id)}</span>
         )}
       </p>
 
@@ -64,3 +60,17 @@ export default function Product({ product }) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    state: state.basket,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

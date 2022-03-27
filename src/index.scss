@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   background-color: #FDFAF6;
-  text-align: center;
 }
 
 * {
@@ -16,4 +15,12 @@ body {
 
 a {
   text-decoration: none !important;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 6rem;
 }

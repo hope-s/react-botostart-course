@@ -1,5 +1,3 @@
-import React, { useReducer, createContext } from "react";
-
 const initialValue = {
   selectedItems: [],
   itemsCounter: 0,
@@ -15,10 +13,13 @@ const sumItems = (items) => {
   const total = items
     .reduce((total, product) => total + product.price * product.quantity, 0)
     .toFixed(2);
-  return { itemsCounter, total };
+  return {
+    itemsCounter,
+    total
+  };
 };
 
-const reducer = (state, action) => {
+const basketReducer = (state = initialValue, action) => {
   switch (action.type) {
     case "ADD_ITEM":
       if (!state.selectedItems.find((item) => item.id === action.payload.id)) {
@@ -30,10 +31,9 @@ const reducer = (state, action) => {
       return {
         ...state,
         selectedItems: [...state.selectedItems],
-        ...sumItems(state.selectedItems),
-        checkout: false,
+          ...sumItems(state.selectedItems),
+          checkout: false,
       };
-
     case "REMOVE_ITEM":
       const newSelectedItems = state.selectedItems.filter(
         (item) => item.id !== action.payload.id
@@ -41,9 +41,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         selectedItems: [...newSelectedItems],
-        ...sumItems(newSelectedItems),
+          ...sumItems(newSelectedItems),
       };
-
     case "INCREASE":
       const indexI = state.selectedItems.findIndex(
         (item) => item.id === action.payload.id
@@ -65,31 +64,20 @@ const reducer = (state, action) => {
     case "CHECKOUT":
       return {
         selectedItems: [],
-        itemsCounter: 0,
-        total: 0,
-        checkout: true,
+          itemsCounter: 0,
+          total: 0,
+          checkout: true,
       };
     case "CLEAR":
       return {
         selectedItems: [],
-        itemsCounter: 0,
-        total: 0,
-        checkout: false,
+          itemsCounter: 0,
+          total: 0,
+          checkout: false,
       };
 
     default:
       return state;
   }
 };
-
-export const CardContext = createContext();
-
-export default function CardContextProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialValue);
-
-  return (
-    <CardContext.Provider value={{ state, dispatch }}>
-      {children}
-    </CardContext.Provider>
-  );
-}
+export default basketReducer;

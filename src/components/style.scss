@@ -1,0 +1,358 @@
+.navbar {
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #000;
+
+    .cartShopIcon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        right: 1rem;
+        top: 0.4rem;
+
+        span {
+            background: #0E3EDA;
+            color: #ffffff;
+            padding: 0px 3px 1px 3px;
+            margin-left: -6px;
+            margin-top: -22px;
+            font-size: 13px;
+            border-radius: 5px;
+            display: inline;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+        }
+
+        img {
+            display: flex;
+            width: 40px;
+        }
+    }
+
+    .navLink {
+        color: #4FBDBA;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+}
+
+.cardProduct {
+    width: 300px;
+    height: 430px;
+    margin: 1.5rem 0;
+    border: 1px solid #EEEEEE;
+    background-color: #ffffff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+
+    &:hover {
+        box-shadow: 17px 17px 57px #b1b1b1,
+            -17px -17px 57px #ffffff;
+    }
+}
+
+.cardImage {
+    max-width: 200px;
+    width: 100%;
+    height: 280px;
+    padding: 0.4rem;
+    margin: 0 auto;
+    display: block;
+}
+
+.cardText {
+    margin-left: 1rem;
+
+    span {
+        color: #084594;
+        font-weight: 600;
+    }
+}
+
+.textPrice {
+    color: #4FBDBA !important;
+}
+
+.cardBtn {
+    margin: 0rem 0.5rem;
+    padding: 0.5rem 3rem;
+    border: none;
+    text-align: center;
+    color: #ffffff;
+    background-color: #0E3EDA;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+    text-align: right;
+
+    &:hover {
+        background-color: #084594;
+    }
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.cardButtons {
+    display: flex;
+    margin-left: 10px;
+}
+
+.cardLink {
+    margin: 0rem 1rem;
+    padding: 0.5rem 2rem;
+    border: none;
+    text-align: center;
+    color: #ffffff;
+    background-color: #4FBDBA;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+    text-align: right;
+    display: inline-block;
+
+    &:hover {
+        background-color: #4FBDBA;
+    }
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.cardDetails {
+    width: 70%;
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding-top: 6rem;
+    border: 1px solid #4FBDBA;
+    position: relative;
+    top: 7.4rem;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+
+    @media screen and (max-width: 1030px) {
+        margin-bottom: 10rem;
+        width: 90%;
+    }
+}
+
+.cardDetailsImage {
+    width: 300px;
+    height: 300px;
+    margin: -5rem 3rem 1.5rem 3rem;
+
+    img {
+        width: 200px;
+        height: 300px;
+    }
+}
+
+
+.cardDetailsChild {
+    @media screen and (min-width: 600px) {
+        width: 50%;
+        height: 50%;
+    }
+
+    margin: 1rem;
+    padding: 1rem;
+
+    .cardDetailsText {
+        text-align: left;
+    }
+
+    .cardDetailsText:nth-child(1) {
+        color: #4FBDBA
+    }
+
+    .cardDetailsText:nth-child(2) {
+        font-weight: 400;
+    }
+
+    .cardDetailsText:nth-child(3) span {
+        color: #FFBD35
+    }
+
+    .cardBtn,
+    .cardLink {
+        margin: 0.5rem 1rem;
+    }
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.countBtn {
+    padding: 0.1rem 1rem;
+    margin: 0 0.2rem;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+    text-align: right;
+
+    &:focus-visible {
+        outline: none;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+        padding: 0 !important;
+    }
+}
+
+.shopCartProduct {
+    @media screen and (max-width: 768px) {
+        width: 95%;
+    }
+
+    width: 60%;
+    padding-top: 10rem;
+    display: flex;
+    background-color: #ffffff;
+    margin: 0.7rem 1rem;
+    padding-top: 6rem;
+    border: 1px solid #4FBDBA;
+    position: relative;
+    top: 7.4rem;
+    z-index: 0;
+    height: 1rem;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+
+    p {
+        position: absolute;
+        top: 30%;
+    }
+
+    p:nth-child(2) {
+        left: 25%;
+    }
+
+    p:nth-child(3) {
+        left: 25%;
+        top: 50%
+    }
+
+    p:nth-child(4) {
+        left: 55%;
+        background-color: #FFBD35;
+        padding: 0px 5px;
+        border-radius: 5px;
+        color: #ffffff;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+}
+
+.shopCartImge {
+    height: 100px;
+    margin: 0.6rem calc(1.5rem - 4px);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-evenly;
+
+    img {
+        width: 53px;
+        height: 75px;
+    }
+
+}
+
+.shopCardButtons {
+    position: absolute;
+    top: 40%;
+    right: 20px
+}
+
+.cardCheckout {
+    @media only screen and (max-width: 768px) {
+        margin-top: 35%;
+        margin-left: calc(2% + 10px);
+        width: 90%;
+    }
+
+    p span {
+        color: #4FBDBA;
+        font-weight: bold;
+    }
+
+    .cardBtn {
+        margin: 1rem 1.5rem 1rem 0rem;
+        padding: 0.5rem 2rem;
+    }
+
+    .cardBtn:nth-last-child(1) {
+        background-color: #FF6B6B;
+    }
+
+    .cardBtn:nth-last-child(2) {
+        background-color: #4FBDBA
+    }
+
+    text-align: left;
+    background-color: #ffffff;
+    height: 160px;
+    margin-top: calc(-0.4%);
+    margin-right: 90%;
+    margin-left: 63.5%;
+    padding-left: 1rem;
+    position: sticky !important;
+    top: 0 !important;
+    bottom: 0;
+    border: 1px solid #b1b1b1;
+    width: 35%;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.shopCartMessage {
+    text-align: center;
+    padding-top: 10rem;
+}
+
+.colorPrimary {
+    color: #4FBDBA
+}

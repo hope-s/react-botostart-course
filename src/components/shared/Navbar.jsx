@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { CardContext } from "../context/CardContextProvider";
+import React from "react";
 import "../style.scss";
 import Shop from "../../assets/shop.svg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
-  const { state } = useContext(CardContext);
+  const state = useSelector((state) => state.basket);
   return (
     <div>
       <nav className="navbar">
