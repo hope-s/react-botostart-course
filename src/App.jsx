@@ -1,13 +1,13 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Demo from "./components/Demo";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 function App() {
   return (
-    <React.Fragment>
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <Demo />
-      </Suspense>
-    </React.Fragment>
+    <Provider store={store}>
+      <Demo />
+    </Provider>
   );
 }
 
