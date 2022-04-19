@@ -1,68 +1,49 @@
-import React from "react";
-import { fetchPosts } from "../redux/actions";
-import { connect, useSelector, useDispatch } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import React, { useState } from "react";
 
-class PostsComponent extends React.Component {
-  componentDidMount() {
-    this.props.fetchPosts();
-  }
-  render() {
-    const data = this.props.data;
-    const {
-      userData: { posts, isloading, error },
-    } = data;
+export default function Demo() {
+  const [timer, setTimer] = useState({ hour: 23, minute: 50, second: 58 });
 
-    console.log(data.userData);
+  const start = () => {
+    setTimer((prev) => ({
+      ...prev,
+      second: prev.second + 1,
+    }));
+  };
 
-    return (
-      <div className="app-container">
-        {isloading ? (
-          <h1>Loading...</h1>
-        ) : error ? (
-          <h1>{error}</h1>
-        ) : (
-          posts.map((i) => <p key={i.id}>{i.title}</p>)
-        )}
-      </div>
-    );
-  }
+  React.useEffect(() => {
+    setInterval(() => {
+      start();
+    }, 1000);
+  }, []);
+
+  React.useEffect(() => {
+    if (timer.second === 60) {
+      setTimer((prev) => ({
+        ...prev,
+        second: 0,
+        minute: prev.minute + 1,
+      }));
+    }
+    if (timer.minute === 60) {
+      setTimer((prev) => ({
+        ...prev,
+        minute: 0,
+        hour: prev.hour + 1,
+      }));
+    }
+    if (timer.hour === 24) {
+      setTimer((prev) => ({
+        ...prev,
+        minute: 0,
+        second: 0,
+        hour: 0,
+      }));
+    }
+  }, [timer]);
+
+  return (
+    <h3 style={{ textAlign: "center" }}>
+      {timer.hour} : {timer.minute} : {timer.second}
+    </h3>
+  );
 }
-
-const structuredSelector = createStructuredSelector({
-  data: (state) => state,
-});
-
-const mapDispatchToProps = { fetchPosts };
-export default connect(structuredSelector, mapDispatchToProps)(PostsComponent);
-
-
-
-// *********************************
-// function componenet =>
-// *********************************
-
-
-
-// export default function Demo() {
-//   const { posts, loading, error } = useSelector((state) => state.userData);
-//   const dispatch = useDispatch();
-
-//   console.table(posts)
-
-//   React.useEffect(() => {
-//     dispatch(fetchPosts());
-//   }, []);
-
-//   return (
-//     <div className="app-container">
-//       {loading ? (
-//         <h1>Loading...</h1>
-//       ) : error ? (
-//         <h1>{error}</h1>
-//       ) : (
-//         posts.map((i) => <p key={i.id}>{i.title}</p>)
-//       )}
-//     </div>
-//   );
-// }

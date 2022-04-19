@@ -3,7 +3,7 @@ import axios from "axios";
 export class PostsAPI {
   fetchPosts = () => {
     return new Promise(function (resolve, reject) {
-      const url = "https://jsonplaceholder.typicode.com/posts"
+      const url = "https://jsonplaceholder.typicode.com/posts8"
       axios.get(url)
         .then((response) => {
           resolve(response.data)
