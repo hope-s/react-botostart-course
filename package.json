@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "firebase": "^8.7.1",
+    "graphql": "^16.5.0",
     "node-sass": "^7.0.1",
     "prop-types": "^15.8.1",
     "query-string": "^7.1.1",

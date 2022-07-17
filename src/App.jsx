@@ -1,28 +1,30 @@
-import { useMemo, useState } from "react";
+import CreateUser from './pages/CreateUser';
+import DeletePost from './pages/DeletePost';
+import UpdatePost from './pages/UpdatePost';
+import User from './pages/User';
 
 export default function App() {
-  const [show, setShow] = useState(true);
-  const [number, setNumber] = useState(1);
-
-  const slow = useMemo(() => {
-    for (let index = 0; index < 1000000000; index++) {}
-    return show;
-  }, [show]);
-
-  function setShowFunc() {
-    setShow(!show);
-  }
-
-  function setFuncNumber() {
-    setNumber(number + 1);
-  }
-
   return (
-    <div className="App">
-      <h1>{slow ? "true" : "false"}</h1>
-      <p>{number}</p>
-      <button onClick={setFuncNumber}>set number</button>
-      <button onClick={setShowFunc}>set show</button>
+    <div className='App'>
+      <h4>Get User:</h4>
+      <User />
+      <br />
+      <br />
+
+      <h4>Create User:</h4>
+      <CreateUser />
+      <br />
+      <br />
+
+      <h4>Update Post:</h4>
+      <UpdatePost />
+      <br />
+      <br />
+
+      <h4>Delete Post:</h4>
+      <DeletePost />
+      <br />
+      <br />
     </div>
   );
 }
