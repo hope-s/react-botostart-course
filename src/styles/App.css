@@ -1,0 +1,23 @@
+@import url('./font.css');
+
+body {
+  direction: rtl !important;
+  font-family: IRANSansX !important;
+  font-feature-settings: 'ss03' !important;
+  -webkit-font-feature-settings: 'ss03' !important;
+  -moz-font-feature-settings: 'ss03' !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea {
+  font-family: IRANSansX !important;
+}
+h1 {
+  font-weight: bold;
+}
