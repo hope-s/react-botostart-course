@@ -19,7 +19,6 @@ function Post() {
   const { data, loading } = useQuery(GET_POST, {
     variables: { stage: 'PUBLISHED', where: { slug } },
   });
-  console.log(data?.post.author.name);
 
   if (loading)
     return (
@@ -65,7 +64,7 @@ function Post() {
             <Avatar
               src={data?.post.author.avatar.url}
               alt={data.post.author.name}
-              sx={{ width: 80, height: 80, ml: 2 }}
+              sx={{ width: 80, height: 80, mr: 2 }}
             />
             <Box component='div'>
               <Typography variant='h6' fontWeight={700}>

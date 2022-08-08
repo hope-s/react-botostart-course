@@ -2,7 +2,6 @@ import { Avatar, Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 
 function Comments({ comments }) {
-  console.log(comments);
   return (
     <Grid
       container
@@ -15,7 +14,7 @@ function Comments({ comments }) {
     >
       <Grid item xs={12} m={2}>
         <Typography component='p' variant='h6' fontWeight={700} color='primary'>
-          کامنت ها
+          نظرات
         </Typography>
         {comments.map((comment) => (
           <Grid
@@ -35,7 +34,7 @@ function Comments({ comments }) {
                 component='span'
                 variant='p'
                 fontWeight={700}
-                mr={1}
+                ml='10px'
                 color='primary'
               >
                 {comment.name}

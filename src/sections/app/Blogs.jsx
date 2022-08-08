@@ -7,7 +7,6 @@ import Loader from '../../components/Loader';
 
 function Blogs() {
   const { data, loading } = useQuery(GET_ALL_POSTS);
-  console.log(data)
 
   if (loading)
     return (

@@ -1,16 +1,40 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import rtlPlugin from 'stylis-plugin-rtl';
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
+import { prefixer } from 'stylis';
+import { StyleSheetManager } from 'styled-components';
+import { create } from 'jss';
+import rtl from 'jss-rtl';
+import { StylesProvider, jssPreset } from '@mui/styles';
+
 import ScrollToTop from '../ScrollToTop';
 import Footer from './Footer';
 import Header from './Header';
 
+// Create rtl cache
+const cacheRtl = createCache({
+  key: 'muirtl',
+  stylisPlugins: [prefixer, rtlPlugin],
+});
+
+// Configure JSS
+const jss = create({
+  plugins: [...jssPreset().plugins, rtl()],
+});
+
 function Layout({ children }) {
   return (
-    <Fragment>
-      <Header />
-      <ScrollToTop />
-      {children}
-      <Footer />
-    </Fragment>
+    <CacheProvider value={cacheRtl}>
+      <StyleSheetManager stylisPlugins={[rtlPlugin]}>
+        <StylesProvider jss={jss}>
+          <Header />
+          <ScrollToTop />
+          {children}
+          <Footer />
+        </StylesProvider>
+      </StyleSheetManager>
+    </CacheProvider>
   );
 }
 

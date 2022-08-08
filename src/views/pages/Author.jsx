@@ -40,7 +40,7 @@ function Author() {
               alignItems='center'
             >
               <Avatar
-                alt={data?.author.name}
+                alt={data.author.name}
                 src={data?.author.avatar.url}
                 sx={{ width: 250, height: 250, borderRadius: 50 }}
               />

@@ -11,6 +11,7 @@ function Footer() {
         color='primary'
         p={2}
         textAlign='center'
+        mt={10}
       >
         وبلاگ Hope
       </Typography>
