@@ -21,3 +21,17 @@ textarea {
 h1 {
   font-weight: bold;
 }
+
+button a {
+  text-decoration: none !important;
+  color: unset !important;
+}
+
+.unset-link {
+  text-decoration: none !important;
+  color: unset !important;
+}
+
+ul li a {
+  text-decoration: none !important;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Container } from '@mui/material';
 import BookIcon from '@mui/icons-material/Book';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -9,7 +9,9 @@ export default function Header() {
       <Container maxWidth='lg'>
         <Toolbar>
           <Typography variant='h5' component='h1' fontWeight={500} flex={1}>
-            وبلاگ بوتواستارت
+            <Link className='unset-link' to='/'>
+              وبلاگ Hope
+            </Link>
           </Typography>
           <BookIcon />
         </Toolbar>
@@ -17,12 +19,3 @@ export default function Header() {
     </AppBar>
   );
 }
-
-Header.propTypes = {
-  obj: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      age: PropTypes.number.isRequired
-    })
-  )
-};

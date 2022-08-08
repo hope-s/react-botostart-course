@@ -1,4 +1,11 @@
 import { gql } from '@apollo/client';
 
-export const UPDATE_POST = gql`
+export const CREATE_COMMENT = gql`
+  mutation CreateComment($data: CommentCreateInput!) {
+    createComment(data: $data) {
+      text
+      id
+      name
+    }
+  }
 `;

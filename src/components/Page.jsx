@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
 const Page = forwardRef(({ children, title, ...other }, ref) => (
   <div ref={ref} {...other}>
@@ -10,5 +11,9 @@ const Page = forwardRef(({ children, title, ...other }, ref) => (
     {children}
   </div>
 ));
+
+Page.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Page;
