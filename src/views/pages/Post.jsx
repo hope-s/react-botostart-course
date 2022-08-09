@@ -24,7 +24,7 @@ function Post() {
     return (
       <Container>
         <Grid container>
-          <Grid mt='10%' xs={12} item display='flex' justifyContent='center'>
+          <Grid mt='30%' xs={12} item display='flex' justifyContent='center'>
             <Loader size={80} />
           </Grid>
         </Grid>
@@ -38,7 +38,7 @@ function Post() {
           <Grid
             item
             xs={12}
-            mt={15}
+            mt={12}
             display='flex'
             justifyContent='space-between'
           >
@@ -52,7 +52,7 @@ function Post() {
               <Arrow />
             </IconButton>
           </Grid>
-          <Grid item xs={12} mt={6} display='flex' alignItems='center'>
+          <Grid item xs={12} mt={5} display='flex' alignItems='center'>
             <img
               src={data.post.coverPhoto.url}
               alt={data.post.title}
@@ -60,11 +60,11 @@ function Post() {
               style={{ borderRadius: 15 }}
             />
           </Grid>
-          <Grid item xs={12} mt={5} display='flex' alignItems='center'>
+          <Grid item xs={12} mt={6} display='flex' alignItems='center'>
             <Avatar
               src={data?.post.author.avatar.url}
               alt={data.post.author.name}
-              sx={{ width: 80, height: 80, mr: 2 }}
+              sx={{ width: 60, height: 60, mr: 2 }}
             />
             <Box component='div'>
               <Typography variant='h6' fontWeight={700}>
@@ -73,13 +73,13 @@ function Post() {
               <Typography variant='p'>{data.post.author.field}</Typography>
             </Box>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} mt={4}>
             <Box
               component='section'
               dangerouslySetInnerHTML={{
                 __html: sanitizeHtml(data.post.content.html),
               }}
-              sx={{ mt: '100px', textAlign: 'justify' }}
+              sx={{ textAlign: 'justify' }}
             ></Box>
           </Grid>
           <Grid item xs={12}>

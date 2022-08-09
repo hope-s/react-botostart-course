@@ -19,7 +19,7 @@ function Author() {
     return (
       <Container>
         <Grid container>
-          <Grid mt='10%' xs={12} item display='flex' justifyContent='center'>
+          <Grid mt='30%' xs={12} item display='flex' justifyContent='center'>
             <Loader size={80} />
           </Grid>
         </Grid>
@@ -42,7 +42,7 @@ function Author() {
               <Avatar
                 alt={data.author.name}
                 src={data?.author.avatar.url}
-                sx={{ width: 250, height: 250, borderRadius: 50 }}
+                sx={{ width: 200, height: 200, borderRadius: 50 }}
               />
               <Typography component='h3' variant='h5' fontWeight={700} mt={4}>
                 {data?.author.name}

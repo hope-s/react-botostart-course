@@ -20,7 +20,7 @@ function Authors() {
     return (
       <Container>
         <Grid container>
-          <Grid mt='10%' xs={12} item display='flex' justifyContent='center'>
+          <Grid mt='10%' item display='flex' justifyContent='center'>
             <Loader size={80} />
           </Grid>
         </Grid>

@@ -1,5 +1,6 @@
 import { Avatar, Box, Grid, Typography } from '@mui/material';
 import React from 'react';
+import moment from 'moment/moment';
 
 function Comments({ comments }) {
   return (
@@ -13,7 +14,7 @@ function Comments({ comments }) {
       }}
     >
       <Grid item xs={12} m={2}>
-        <Typography component='p' variant='h6' fontWeight={700} color='primary'>
+        <Typography variant='h6' fontWeight={700} color='primary'>
           نظرات
         </Typography>
         {comments.map((comment) => (
@@ -31,13 +32,20 @@ function Comments({ comments }) {
             <Box component='div' display='flex' alignItems='center' mb={2}>
               <Avatar>{comment.name[0]}</Avatar>
               <Typography
-                component='span'
                 variant='p'
                 fontWeight={700}
                 ml='10px'
                 color='primary'
               >
                 {comment.name}
+              </Typography>
+              <Typography
+                variant='span'
+                ml='10px'
+                fontSize={14}
+                color='primary'
+              >
+                {moment(comment.createdAt).format('ll, h:mm, a')}
               </Typography>
             </Box>
             <Box component='div'>
