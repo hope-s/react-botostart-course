@@ -3,7 +3,7 @@ import Page from '../../components/Page';
 import Container from '@mui/material/Container';
 import { Grid, Typography } from '@mui/material';
 import Authors from '../../sections/app/Authors';
-import Blogs from '../../sections/app/Blogs';
+import Posts from '../../sections/app/Posts';
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
             <Typography variant='h5' component='h3' mb={2} fontWeight={700}>
               مقالات
             </Typography>
-            <Blogs />
+            <Posts />
           </Grid>
         </Grid>
       </Container>

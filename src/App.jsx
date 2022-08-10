@@ -5,6 +5,7 @@ import Post from './views/pages/Post';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Layout from './components/layout';
 import Author from './views/pages/Author';
+import NotFound from './views/pages/NotFound';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path='/' element={<Home />} />
           <Route path='/post/:slug' element={<Post />} />
           <Route path='/author/:slug' element={<Author />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Layout>
     </BrowserRouter>

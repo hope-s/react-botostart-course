@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client/core';
 
 export const GET_ALL_POSTS = gql`
-  query Posts {
-    posts {
+  query Posts($skip: Int) {
+    posts(skip: $skip) {
       title
       slug
       id
