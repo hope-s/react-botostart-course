@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import sanitizeHtml from 'sanitize-html';
 import Page from '../../components/Page';
@@ -48,7 +48,7 @@ function Post() {
             <IconButton
               sx={{ width: 50, height: 50 }}
               onClick={() => navigate(-1)}
-            >
+            > 
               <Arrow />
             </IconButton>
           </Grid>
@@ -61,11 +61,16 @@ function Post() {
             />
           </Grid>
           <Grid item xs={12} mt={6} display='flex' alignItems='center'>
-            <Avatar
-              src={data?.post.author.avatar.url}
-              alt={data.post.author.name}
-              sx={{ width: 60, height: 60, mr: 2 }}
-            />
+            <Link
+              to={`/author/${data?.post.author.slug}`}
+              className='unset-link'
+            >
+              <Avatar
+                src={data?.post.author.avatar.url}
+                alt={data.post.author.name}
+                sx={{ width: 60, height: 60, mr: 2 }}
+              />
+            </Link>
             <Box component='div'>
               <Typography variant='h6' fontWeight={700}>
                 {data.post.author.name}

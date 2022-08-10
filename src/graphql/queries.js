@@ -39,6 +39,7 @@ export const GET_POST = gql`
         ... on Author {
           name
           field
+          slug
           avatar {
             url
           }
